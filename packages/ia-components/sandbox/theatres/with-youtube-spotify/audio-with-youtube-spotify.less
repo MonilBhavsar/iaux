@@ -1,0 +1,149 @@
+@import '../../../variables.less';
+
+@audio-player-channel-label-no-display: 600px;
+
+.audio-with-youtube-spotify {
+  padding: .5rem;
+  overflow: hidden;
+  color: @f-white;
+  
+  .submenu {
+    position: absolute;
+    right: 6px;
+
+    .submenu-item {
+      height: 30px;
+      width: 30px;
+
+      > * {
+        height: inherit;
+        width: inherit;
+      }
+    }
+  }
+
+  .playlist-section {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    overflow-y: auto;
+  }
+
+  @media (max-width: @audio-player-channel-label-no-display) {
+    .channel-controls {
+      .channel-label {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: @audio-player-mobile-max-width) {
+    // Channel labels only show logos at mobile view
+    .channel-controls {
+      .selector__radio-group {
+        min-width: 25rem;
+      }
+      .option {
+        width: 25%;
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: @audio-player-tablet-max-width) {
+    .channel-controls {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      text-align: center;
+    }
+    .playlist-section {
+      height: 30rem;
+
+      .page-buttons {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: @audio-player-desktop-min-width) {
+    padding-left: 1rem;
+
+    .media-section,
+    .playlist-section {
+      float: left;
+    }
+    .media-section {
+      width: 34%;
+    }
+    .playlist-section {
+      width: 64%;
+      margin-left: 1rem;
+      padding-right: 2rem;
+
+      .flexbox-pagination {
+        height: 35rem;
+      }
+    }
+
+    .channel-controls {
+      margin-left: 1%;
+      display: inline;
+    }
+
+  }
+
+  .channel-controls .channel-icon,
+  .tabs .channel-icon {
+    display: inline-block;
+    margin: auto;
+  }
+
+  .channel-controls .channel-label,
+  .tabs .channel-label {
+    vertical-align: top;
+    font-weight: 400;
+    padding-left: 0.5rem;
+  }
+
+  .channel-controls {
+    .title {
+      display: inline-block;
+      margin-right: 1rem;
+      vertical-align: top;
+      margin-top: .6rem;
+    }
+  }
+
+  .selector__radio-group {
+    width: inherit;
+
+    .option {
+      padding: 0.5rem 1rem 0;
+
+      label {
+        margin-bottom: 0;
+      }
+
+      .webamp-link {
+        &:hover {
+          text-decoration: none;
+        }
+        display: inline-block;
+        overflow: hidden;
+        color: #fff;
+        opacity: 0.5;
+        float: left; // for safari alignment
+        img {
+          height: 2rem;
+        }
+        .channel-label {
+          margin-top: .1rem;
+        }
+
+        @media (max-width: @audio-player-mobile-max-width) {
+          text-align: center;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
